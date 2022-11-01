@@ -7,7 +7,6 @@
     <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="insert student enum gender">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/JpaUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/JpaUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
