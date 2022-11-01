@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="Add entity manger util">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Major.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/StudentInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" afterDir="false" />
@@ -30,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="02-Util" />
+        <entry key="$PROJECT_DIR$" value="03-One-To-One" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

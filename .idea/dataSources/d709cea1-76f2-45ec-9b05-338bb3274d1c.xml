@@ -11,7 +11,7 @@
 16388||-9223372036854775808|T|G
 16388||10|T|G
 16388||16389|T|G</Grants>
-      <IntrospectionStateNumber>867</IntrospectionStateNumber>
+      <IntrospectionStateNumber>924</IntrospectionStateNumber>
       <ServerVersion>15.0</ServerVersion>
       <StartupTime>1667272700</StartupTime>
       <TimeZones>true ACDT
@@ -1436,7 +1436,7 @@ true posixrules
 16390||16389|C|G
 16390||10|U|G
 16390||16389|U|G</Grants>
-      <IntrospectionStateNumber>867</IntrospectionStateNumber>
+      <IntrospectionStateNumber>924</IntrospectionStateNumber>
       <ObjectId>16388</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4864,191 +4864,246 @@ true posixrules
     <schema id="263" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>827</IntrospectionStateNumber>
+      <IntrospectionStateNumber>892</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <schema id="264" parent="2" name="student">
-      <IntrospectionStateNumber>867</IntrospectionStateNumber>
+      <IntrospectionStateNumber>924</IntrospectionStateNumber>
       <ObjectId>16390</ObjectId>
       <StateNumber>747</StateNumber>
       <OwnerName>postgres</OwnerName>
     </schema>
-    <table id="265" parent="264" name="m_major">
-      <ObjectId>16580</ObjectId>
-      <StateNumber>864</StateNumber>
+    <table id="265" parent="264" name="m_assignment">
+      <ObjectId>16687</ObjectId>
+      <StateNumber>921</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>enigma</OwnerName>
     </table>
-    <table id="266" parent="264" name="m_student">
-      <ObjectId>16585</ObjectId>
-      <StateNumber>864</StateNumber>
+    <table id="266" parent="264" name="m_major">
+      <ObjectId>16694</ObjectId>
+      <StateNumber>922</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>enigma</OwnerName>
     </table>
-    <table id="267" parent="264" name="m_student_info">
-      <ObjectId>16592</ObjectId>
-      <StateNumber>865</StateNumber>
+    <table id="267" parent="264" name="m_student">
+      <ObjectId>16699</ObjectId>
+      <StateNumber>921</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>enigma</OwnerName>
     </table>
-    <column id="268" parent="265" name="major_id">
+    <table id="268" parent="264" name="m_student_info">
+      <ObjectId>16706</ObjectId>
+      <StateNumber>923</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>enigma</OwnerName>
+    </table>
+    <column id="269" parent="265" name="assignment_id">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>861</StateNumber>
+      <StateNumber>917</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="269" parent="265" name="major_name">
+    <column id="270" parent="265" name="assignment_name">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>861</StateNumber>
+      <StateNumber>917</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="270" parent="265" name="m_major_pkey">
-      <ColNames>major_id</ColNames>
+    <column id="271" parent="265" name="student_id">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>917</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="272" parent="265" name="fkdvkmpbim7m5197qkgfrqwf2xh">
+      <ColNames>student_id</ColNames>
+      <ObjectId>16713</ObjectId>
+      <RefColNames>student_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>921</StateNumber>
+      <RefTableId>16699</RefTableId>
+      <RefTableName>m_student</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="273" parent="265" name="m_assignment_pkey">
+      <ColNames>assignment_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16583</ObjectId>
+      <ObjectId>16692</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>861</StateNumber>
+      <StateNumber>917</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="271" parent="265" name="m_major_pkey">
+    <key id="274" parent="265" name="m_assignment_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16584</ObjectId>
+      <ObjectId>16693</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>861</StateNumber>
-      <UnderlyingIndexId>16583</UnderlyingIndexId>
+      <StateNumber>917</StateNumber>
+      <UnderlyingIndexId>16692</UnderlyingIndexId>
     </key>
-    <column id="272" parent="266" name="student_id">
+    <column id="275" parent="266" name="major_id">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>918</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="273" parent="266" name="birth_date">
+    <column id="276" parent="266" name="major_name">
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>918</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="277" parent="266" name="m_major_pkey">
+      <ColNames>major_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16697</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>918</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="278" parent="266" name="m_major_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16698</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>918</StateNumber>
+      <UnderlyingIndexId>16697</UnderlyingIndexId>
+    </key>
+    <column id="279" parent="267" name="student_id">
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>919</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="280" parent="267" name="birth_date">
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="274" parent="266" name="first_name">
+    <column id="281" parent="267" name="first_name">
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="275" parent="266" name="gender">
+    <column id="282" parent="267" name="gender">
       <DataType>varchar(7)|0s</DataType>
       <Position>4</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="276" parent="266" name="last_name">
+    <column id="283" parent="267" name="last_name">
       <DataType>varchar(50)|0s</DataType>
       <Position>5</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="277" parent="266" name="major_id">
+    <column id="284" parent="267" name="major_id">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="278" parent="266" name="student_info_id">
+    <column id="285" parent="267" name="student_info_id">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="279" parent="266" name="fkp96bu4kmdgd5tpubtja3q6clh">
+    <foreign-key id="286" parent="267" name="fkp96bu4kmdgd5tpubtja3q6clh">
       <ColNames>major_id</ColNames>
-      <ObjectId>16599</ObjectId>
+      <ObjectId>16718</ObjectId>
       <RefColNames>major_id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <StateNumber>864</StateNumber>
-      <RefTableId>16580</RefTableId>
+      <StateNumber>922</StateNumber>
+      <RefTableId>16694</RefTableId>
       <RefTableName>m_major</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="280" parent="266" name="fkccqljav2tlh6joij358e0n67f">
+    <foreign-key id="287" parent="267" name="fkccqljav2tlh6joij358e0n67f">
       <ColNames>student_info_id</ColNames>
-      <ObjectId>16604</ObjectId>
+      <ObjectId>16723</ObjectId>
       <RefColNames>student_info_id</RefColNames>
       <RefColPositions>1</RefColPositions>
-      <StateNumber>865</StateNumber>
-      <RefTableId>16592</RefTableId>
+      <StateNumber>923</StateNumber>
+      <RefTableId>16706</RefTableId>
       <RefTableName>m_student_info</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="281" parent="266" name="m_student_pkey">
+    <index id="288" parent="267" name="m_student_pkey">
       <ColNames>student_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16590</ObjectId>
+      <ObjectId>16704</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>862</StateNumber>
+      <StateNumber>919</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="282" parent="266" name="m_student_pkey">
+    <key id="289" parent="267" name="m_student_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16591</ObjectId>
+      <ObjectId>16705</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>862</StateNumber>
-      <UnderlyingIndexId>16590</UnderlyingIndexId>
+      <StateNumber>919</StateNumber>
+      <UnderlyingIndexId>16704</UnderlyingIndexId>
     </key>
-    <column id="283" parent="267" name="student_info_id">
+    <column id="290" parent="268" name="student_info_id">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>863</StateNumber>
+      <StateNumber>920</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="284" parent="267" name="hobby">
+    <column id="291" parent="268" name="hobby">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
-      <StateNumber>863</StateNumber>
+      <StateNumber>920</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="285" parent="267" name="religion">
+    <column id="292" parent="268" name="religion">
       <DataType>varchar(255)|0s</DataType>
       <Position>3</Position>
-      <StateNumber>863</StateNumber>
+      <StateNumber>920</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="286" parent="267" name="m_student_info_pkey">
+    <index id="293" parent="268" name="m_student_info_pkey">
       <ColNames>student_info_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16597</ObjectId>
+      <ObjectId>16711</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>863</StateNumber>
+      <StateNumber>920</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="287" parent="267" name="m_student_info_pkey">
+    <key id="294" parent="268" name="m_student_info_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16598</ObjectId>
+      <ObjectId>16712</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>863</StateNumber>
-      <UnderlyingIndexId>16597</UnderlyingIndexId>
+      <StateNumber>920</StateNumber>
+      <UnderlyingIndexId>16711</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

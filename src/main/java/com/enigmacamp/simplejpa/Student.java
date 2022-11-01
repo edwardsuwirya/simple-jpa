@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "M_STUDENT", schema = "student")
@@ -32,6 +33,10 @@ public class Student {
     @OneToOne
     @JoinColumn(name = "major_id", nullable = false)
     private Major major;
+
+    @OneToMany(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "student_id")
+    private List<Assignment> assignmentList;
 
     public String getStudentId() {
         return studentId;
@@ -90,6 +95,14 @@ public class Student {
         this.major = major;
     }
 
+    public List<Assignment> getAssignmentList() {
+        return assignmentList;
+    }
+
+    public void setAssignmentList(List<Assignment> assignmentList) {
+        this.assignmentList = assignmentList;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -97,9 +110,10 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
-                ", major='" + major + '\'' +
                 ", birthDate=" + birthDate +
                 ", studentInfo=" + studentInfo +
+                ", major=" + major +
+                ", assignmentList=" + assignmentList +
                 '}';
     }
 }
