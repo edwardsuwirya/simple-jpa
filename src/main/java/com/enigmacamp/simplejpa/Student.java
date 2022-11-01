@@ -22,6 +22,7 @@ public class Student {
     @Column(name = "major", nullable = false, length = 100)
     private String major;
 
+    @Column(name = "birth_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
@@ -65,6 +66,14 @@ public class Student {
         this.major = major;
     }
 
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -73,6 +82,7 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", major='" + major + '\'' +
+                ", birthDate=" + birthDate +
                 '}';
     }
 }
