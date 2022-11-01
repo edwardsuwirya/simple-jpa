@@ -54,7 +54,6 @@ public class Application {
     }
 
     private static void getAllStudent(EntityManager entityManager) {
-        entityManager.getTransaction().begin();
         List<Student> result = entityManager.createQuery("select s from Student s", Student.class).getResultList();
         for (Student s : result) {
             System.out.println(s);
@@ -63,7 +62,6 @@ public class Application {
     }
 
     private static void getAllStudentByMajor(EntityManager entityManager, String major) {
-        entityManager.getTransaction().begin();
         TypedQuery<Student> query = entityManager.createQuery("select s from Student s where s.major like ?1", Student.class);
         query.setParameter(1, "%" + major + "%");
         for (Student s : query.getResultList()) {
@@ -73,7 +71,6 @@ public class Application {
     }
 
     private static void getAllStudentInMajor(EntityManager entityManager, String... majors) {
-        entityManager.getTransaction().begin();
         TypedQuery<Student> query = entityManager.createQuery("select s from Student s where s.major in (:majors)", Student.class);
         query.setParameter("majors", Arrays.asList(majors));
         for (Student s : query.getResultList()) {
@@ -83,10 +80,8 @@ public class Application {
     }
 
     private static void getStudentById(EntityManager entityManager, String id) {
-        entityManager.getTransaction().begin();
         Student result = entityManager.find(Student.class, id);
         System.out.println(result);
-        entityManager.getEntityManagerFactory().close();
         entityManager.close();
     }
 
