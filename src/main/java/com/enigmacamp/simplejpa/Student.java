@@ -20,12 +20,18 @@ public class Student {
     @Column(name = "gender", length = 7)
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @Column(name = "major", nullable = false, length = 100)
-    private String major;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student_info_id", nullable = false)
+    private StudentInfo studentInfo;
+
+    @OneToOne
+    @JoinColumn(name = "major_id", nullable = false)
+    private Major major;
 
     public String getStudentId() {
         return studentId;
@@ -59,13 +65,6 @@ public class Student {
         this.gender = gender;
     }
 
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
 
     public Date getBirthDate() {
         return birthDate;
@@ -75,15 +74,32 @@ public class Student {
         this.birthDate = birthDate;
     }
 
+    public StudentInfo getStudentInfo() {
+        return studentInfo;
+    }
+
+    public void setStudentInfo(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
+    }
+
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "studentId='" + studentId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
                 ", major='" + major + '\'' +
                 ", birthDate=" + birthDate +
+                ", studentInfo=" + studentInfo +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package com.enigmacamp.simplejpa;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
 import java.text.ParseException;
@@ -12,7 +13,9 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        EntityManagerFactory emf = JpaUtil.getEntityManagerFactory();
+        JpaUtil.getEntityManagerFactory();
+        //0. Insert Major
+//        insertMajor();
         // 1. Insert data
         insertStudent();
 
@@ -33,93 +36,147 @@ public class Application {
         JpaUtil.shutdown();
     }
 
-    private static void insertStudent() {
+    private static void insertMajor() {
         try {
             EntityManager entityManager = JpaUtil.getEntityManger();
+            Major major01 = new Major();
+            major01.setMajorName("Java");
+
+            Major major02 = new Major();
+            major02.setMajorName("React");
+
+            Major major03 = new Major();
+            major03.setMajorName("React Native");
+
+            entityManager.getTransaction().begin();
+            entityManager.persist(major01);
+            entityManager.persist(major02);
+            entityManager.persist(major03);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("Failed because " + e.getMessage());
+        }
+    }
+
+    private static Major getMajorByName(String majorName) {
+        Major major = null;
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        try {
+            TypedQuery<Major> majorTypedQuery = entityManager.createQuery("select m from Major m where m.majorName=:major", Major.class);
+            majorTypedQuery.setParameter("major", majorName);
+            major = majorTypedQuery.getSingleResult();
+            return major;
+        } catch (Exception e) {
+            System.out.println("Failed because " + e.getMessage());
+            return null;
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    private static void insertStudent() {
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        EntityTransaction tx = entityManager.getTransaction();
+        try {
             Student student01 = new Student();
             student01.setFirstName("Tika");
             student01.setLastName("Cleo");
             student01.setGender(Gender.FEMALE);
-            student01.setMajor("Angular");
+            student01.setMajor(getMajorByName("Java"));
             Date studentDob = new SimpleDateFormat("yyyy-MM-dd").parse("2001-01-07");
             student01.setBirthDate(studentDob);
-            entityManager.getTransaction().begin();
+
+            StudentInfo studentInfo01 = new StudentInfo();
+            studentInfo01.setHobby("Memasak");
+            studentInfo01.setReligion("Kristen");
+
+            student01.setStudentInfo(studentInfo01);
+
+
+            tx.begin();
             entityManager.persist(student01);
-            entityManager.getTransaction().commit();
+            tx.commit();
+
         } catch (ParseException e) {
             System.out.println("Failed because " + e.getMessage());
+            tx.rollback();
         } catch (Exception e) {
             System.out.println("Failed because " + e.getMessage());
+            tx.rollback();
+        } finally {
+            entityManager.close();
         }
     }
 
     private static void getAllStudent() {
+        EntityManager entityManager = JpaUtil.getEntityManger();
         try {
-            EntityManager entityManager = JpaUtil.getEntityManger();
-            entityManager.getTransaction().begin();
             List<Student> result = entityManager.createQuery("select s from Student s", Student.class).getResultList();
             for (Student s : result) {
                 System.out.println(s);
             }
-            entityManager.close();
         } catch (Exception e) {
             System.out.println("Failed because " + e.getMessage());
+        } finally {
+            entityManager.close();
         }
     }
 
     private static void getAllStudentByMajor(String major) {
+        EntityManager entityManager = JpaUtil.getEntityManger();
         try {
-            EntityManager entityManager = JpaUtil.getEntityManger();
-            entityManager.getTransaction().begin();
-            TypedQuery<Student> query = entityManager.createQuery("select s from Student s where s.major like ?1", Student.class);
+            TypedQuery<Student> query = entityManager.createQuery("select s from Student s where s.major.majorName like ?1", Student.class);
             query.setParameter(1, "%" + major + "%");
             for (Student s : query.getResultList()) {
                 System.out.println(s);
             }
-            entityManager.close();
         } catch (Exception e) {
             System.out.println("Failed because " + e.getMessage());
+        } finally {
+            entityManager.close();
         }
     }
 
     private static void getAllStudentInMajor(String... majors) {
+        EntityManager entityManager = JpaUtil.getEntityManger();
         try {
-            EntityManager entityManager = JpaUtil.getEntityManger();
-            entityManager.getTransaction().begin();
             TypedQuery<Student> query = entityManager.createQuery("select s from Student s where s.major in (:majors)", Student.class);
             query.setParameter("majors", Arrays.asList(majors));
             for (Student s : query.getResultList()) {
                 System.out.println(s);
             }
-            entityManager.close();
         } catch (Exception e) {
             System.out.println("Failed because " + e.getMessage());
+        } finally {
+            entityManager.close();
         }
     }
 
     private static void getStudentById(String id) {
+        EntityManager entityManager = JpaUtil.getEntityManger();
         try {
-            EntityManager entityManager = JpaUtil.getEntityManger();
-            entityManager.getTransaction().begin();
             Student result = entityManager.find(Student.class, id);
             System.out.println(result);
-            entityManager.getEntityManagerFactory().close();
-            entityManager.close();
         } catch (Exception e) {
             System.out.println("Failed because " + e.getMessage());
+        } finally {
+            entityManager.close();
         }
     }
 
     private static void updateStudentMajor(String id, String newMajor) {
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        EntityTransaction tx = entityManager.getTransaction();
         try {
-            EntityManager entityManager = JpaUtil.getEntityManger();
-            entityManager.getTransaction().begin();
+            tx.begin();
             Student result = entityManager.find(Student.class, id);
-            result.setMajor(newMajor);
-            entityManager.getTransaction().commit();
-            entityManager.close();
+            result.setMajor(getMajorByName(newMajor));
+            tx.commit();
         } catch (Exception e) {
             System.out.println("Failed because " + e.getMessage());
+            tx.rollback();
+        } finally {
+            entityManager.close();
         }
     }
 }

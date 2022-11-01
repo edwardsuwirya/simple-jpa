@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="insert student enum gender">
+    <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="Add entity manger util">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Major.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/StudentInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/JpaUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/JpaUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="01-CRUD" />
+        <entry key="$PROJECT_DIR$" value="02-Util" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -144,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667284742664</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add entity manger util">
+      <created>1667288240616</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667288240616</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +177,8 @@
     <MESSAGE value="Simple JPA" />
     <MESSAGE value="insert student with birth date" />
     <MESSAGE value="insert student enum gender" />
-    <option name="LAST_COMMIT_MESSAGE" value="insert student enum gender" />
+    <MESSAGE value="Add entity manger util" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add entity manger util" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
