@@ -3,6 +3,8 @@ package com.enigmacamp.simplejpa;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "M_STUDENT", schema = "student")
 public class Student {
@@ -19,6 +21,9 @@ public class Student {
     private String gender;
     @Column(name = "major", nullable = false, length = 100)
     private String major;
+
+    @Temporal(TemporalType.DATE)
+    private Date birthDate;
 
     public String getStudentId() {
         return studentId;
