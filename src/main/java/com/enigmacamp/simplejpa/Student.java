@@ -23,7 +23,6 @@ public class Student {
     @Column(name = "major", nullable = false, length = 100)
     private String major;
 
-    @Column(name = "birth_date", nullable = false)
     @Temporal(TemporalType.DATE)
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
