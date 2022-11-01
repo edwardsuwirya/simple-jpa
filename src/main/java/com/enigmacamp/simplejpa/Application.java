@@ -5,7 +5,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class Application {
@@ -14,7 +17,7 @@ public class Application {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         // 1. Insert data
-//        insertStudent(entityManager);
+        insertStudent(entityManager);
 
         // 2. Query
 //        getAllStudent(entityManager);
@@ -29,21 +32,27 @@ public class Application {
 //        getAllStudentInMajor(entityManager, "DevOps", "Java");
 
         //5. Update student major
-        updateStudentMajor(entityManager, "7cb7a03c-7a3f-48df-8696-e8a11bde6cb6", "ReactJS");
+//        updateStudentMajor(entityManager, "7cb7a03c-7a3f-48df-8696-e8a11bde6cb6", "ReactJS");
     }
 
     private static void insertStudent(EntityManager entityManager) {
-        Student student01 = new Student();
-        student01.setFirstName("Tika");
-        student01.setLastName("Yesi");
-        student01.setGender("F");
-        student01.setMajor("Java");
-        entityManager.getTransaction().begin();
-        entityManager.persist(student01);
-        entityManager.getTransaction().commit();
-        entityManager.getEntityManagerFactory().close();
-        entityManager.close();
-
+        try {
+            Student student01 = new Student();
+            student01.setFirstName("Tika");
+            student01.setLastName("Yesi");
+            student01.setGender("F");
+            student01.setMajor("Java");
+            Date studentDob = new SimpleDateFormat("yyyy-MM-dd").parse("2001-03-12");
+            student01.setBirthDate(studentDob);
+            entityManager.getTransaction().begin();
+            entityManager.persist(student01);
+            entityManager.getTransaction().commit();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            entityManager.getEntityManagerFactory().close();
+            entityManager.close();
+        }
     }
 
     private static void getAllStudent(EntityManager entityManager) {
