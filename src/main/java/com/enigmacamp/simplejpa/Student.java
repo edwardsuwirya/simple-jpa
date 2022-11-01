@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "M_STUDENT")
+@Table(name = "M_STUDENT", schema = "student")
 public class Student {
     @Id
     @GeneratedValue(generator = "UUID")
