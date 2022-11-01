@@ -1,5 +1,6 @@
 package com.enigmacamp.simplejpa;
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -12,6 +13,13 @@ public class JpaUtil {
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         }
         return factory;
+    }
+
+    public static EntityManager getEntityManger() {
+        if (factory != null) {
+            return factory.createEntityManager();
+        }
+        throw new RuntimeException("Factory is null");
     }
 
     public static void shutdown() {
