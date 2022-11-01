@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="Simple JPA">
+    <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="insert student with birth date">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Gender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Student.java" afterDir="false" />
@@ -18,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -54,28 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "go.import.settings.migrated": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "show.migrate.to.gradle.popup": "false"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa" />
@@ -129,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667274548627</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="insert student with birth date">
+      <created>1667283864434</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667283864434</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +167,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Simple JPA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simple JPA" />
+    <MESSAGE value="insert student with birth date" />
+    <option name="LAST_COMMIT_MESSAGE" value="insert student with birth date" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

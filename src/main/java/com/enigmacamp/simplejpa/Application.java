@@ -38,11 +38,11 @@ public class Application {
     private static void insertStudent(EntityManager entityManager) {
         try {
             Student student01 = new Student();
-            student01.setFirstName("Tika");
-            student01.setLastName("Yesi");
-            student01.setGender("F");
-            student01.setMajor("Java");
-            Date studentDob = new SimpleDateFormat("yyyy-MM-dd").parse("2001-03-12");
+            student01.setFirstName("Raul");
+            student01.setLastName("Fadley");
+            student01.setGender(Gender.MALE);
+            student01.setMajor("Go");
+            Date studentDob = new SimpleDateFormat("yyyy-MM-dd").parse("2005-04-07");
             student01.setBirthDate(studentDob);
             entityManager.getTransaction().begin();
             entityManager.persist(student01);

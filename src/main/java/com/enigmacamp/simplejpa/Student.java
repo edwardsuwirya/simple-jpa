@@ -17,8 +17,9 @@ public class Student {
     private String firstName;
     @Column(name = "last_name", length = 50)
     private String lastName;
-    @Column(name = "gender", length = 1)
-    private String gender;
+    @Column(name = "gender", length = 7)
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     @Column(name = "major", nullable = false, length = 100)
     private String major;
 
@@ -50,11 +51,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
