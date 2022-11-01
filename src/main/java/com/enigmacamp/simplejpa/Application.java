@@ -13,35 +13,34 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
+        EntityManagerFactory emf = JpaUtil.getEntityManagerFactory();
         // 1. Insert data
-        insertStudent(entityManager);
+        insertStudent(emf.createEntityManager());
 
         // 2. Query
-//        getAllStudent(entityManager);
+        getAllStudent(emf.createEntityManager());
 
         //3. Find By Id
-//        getStudentById(entityManager, "e15d988c-8e0a-4f98-85a6-a5f07daf50ee");
+//        getStudentById(emf.createEntityManager(), "e15d988c-8e0a-4f98-85a6-a5f07daf50ee");
 
         //4. Find By major
-//        getAllStudentByMajor(entityManager, "Dev");
+//        getAllStudentByMajor(emf.createEntityManager(), "Dev");
 
         //4. Find In major
-//        getAllStudentInMajor(entityManager, "DevOps", "Java");
+//        getAllStudentInMajor(emf.createEntityManager(), "DevOps", "Java");
 
         //5. Update student major
-//        updateStudentMajor(entityManager, "7cb7a03c-7a3f-48df-8696-e8a11bde6cb6", "ReactJS");
+//        updateStudentMajor(emf.createEntityManager(), "7cb7a03c-7a3f-48df-8696-e8a11bde6cb6", "ReactJS");
+        JpaUtil.shutdown();
     }
 
     private static void insertStudent(EntityManager entityManager) {
         try {
             Student student01 = new Student();
-            student01.setFirstName("Raul");
-            student01.setLastName("Fadley");
+            student01.setFirstName("Sulton");
+            student01.setLastName("Gonzales");
             student01.setGender(Gender.MALE);
-            student01.setMajor("Go");
+            student01.setMajor("React");
             Date studentDob = new SimpleDateFormat("yyyy-MM-dd").parse("2005-04-07");
             student01.setBirthDate(studentDob);
             entityManager.getTransaction().begin();
@@ -50,7 +49,6 @@ public class Application {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         } finally {
-            entityManager.getEntityManagerFactory().close();
             entityManager.close();
         }
     }
@@ -61,7 +59,6 @@ public class Application {
         for (Student s : result) {
             System.out.println(s);
         }
-        entityManager.getEntityManagerFactory().close();
         entityManager.close();
     }
 
@@ -72,7 +69,6 @@ public class Application {
         for (Student s : query.getResultList()) {
             System.out.println(s);
         }
-        entityManager.getEntityManagerFactory().close();
         entityManager.close();
     }
 
@@ -83,7 +79,6 @@ public class Application {
         for (Student s : query.getResultList()) {
             System.out.println(s);
         }
-        entityManager.getEntityManagerFactory().close();
         entityManager.close();
     }
 
@@ -100,7 +95,6 @@ public class Application {
         Student result = entityManager.find(Student.class, id);
         result.setMajor(newMajor);
         entityManager.getTransaction().commit();
-        entityManager.getEntityManagerFactory().close();
         entityManager.close();
     }
 }
