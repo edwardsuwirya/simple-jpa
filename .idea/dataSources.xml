@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="enigma@do-postgres-server" uuid="d709cea1-76f2-45ec-9b05-338bb3274d1c">
+    <data-source source="LOCAL" name="postgres@do-postgres-server" uuid="4459431f-b2bd-4e01-b1e3-c2c05fd6a22c">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://do-postgres-server:5432/enigma</jdbc-url>
+      <jdbc-url>jdbc:postgresql://do-postgres-server:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

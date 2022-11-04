@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "M_STUDENT", schema = "student")
+@Table(name = "M_STUDENT")
 public class Student {
     @Id
     @GeneratedValue(generator = "UUID")

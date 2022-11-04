@@ -1,7 +1,6 @@
 package com.enigmacamp.simplejpa;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
@@ -14,12 +13,18 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         JpaUtil.getEntityManagerFactory();
+//        Many To Many
+        //        createCourse();
+//        registerTeacher();
+        registerCourseWithTeacher();
+//        getAllTeacher();
         //0. Insert Major
 //        insertMajor();
         // 1. Insert data
 //        insertStudent();
 
-        createStudentAssignment();
+
+//        createStudentAssignment();
         // 2. Query
 //        getAllStudent();
 
@@ -35,6 +40,79 @@ public class Application {
         //5. Update student major
 //        updateStudentMajor(emf.createEntityManager(), "7cb7a03c-7a3f-48df-8696-e8a11bde6cb6", "ReactJS");
         JpaUtil.shutdown();
+    }
+
+    private static void getAllTeacher() {
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        try {
+            List<Teacher> result = entityManager.createQuery("select s from Teacher s", Teacher.class).getResultList();
+            for (Teacher s : result) {
+                System.out.println(s);
+            }
+        } catch (Exception e) {
+            System.out.println("Failed because " + e.getMessage());
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    private static void createCourse() {
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        EntityTransaction tx = entityManager.getTransaction();
+        try {
+            tx.begin();
+            Course course = new Course();
+            course.setCourseName("Data Structure");
+            entityManager.persist(course);
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println("Failed because " + e.getMessage());
+            tx.rollback();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    private static void registerTeacher() {
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        EntityTransaction tx = entityManager.getTransaction();
+        try {
+            tx.begin();
+            Course course = entityManager.find(Course.class, "729f0b90-a0c8-4e60-8b5c-f816d3604da3");
+            List<Course> courses = Arrays.asList(course);
+            Teacher teacher = new Teacher();
+            teacher.setTeacherName("Tika");
+            teacher.setCourses(courses);
+            entityManager.persist(teacher);
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println("Failed because " + e.getMessage());
+            tx.rollback();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    private static void registerCourseWithTeacher() {
+        EntityManager entityManager = JpaUtil.getEntityManger();
+        EntityTransaction tx = entityManager.getTransaction();
+        try {
+            tx.begin();
+            Teacher teacher = entityManager.find(Teacher.class, "af5942ee-6063-45c7-acb9-8626f491cff8");
+            Course course = new Course();
+            course.setCourseName("Go");
+//            course.getTeachers().add(teacher);
+//            teacher.getCourses().add(course);
+//            Alternatif
+            course.addTeacher(teacher);
+            entityManager.persist(course);
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println("Failed because " + e.getMessage());
+            tx.rollback();
+        } finally {
+            entityManager.close();
+        }
     }
 
     private static void createStudentAssignment() {

@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="Add entity manger util">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Assignment.java" afterDir="false" />
+    <list default="true" id="65cb2f97-215c-48cd-b362-2196919aac7b" name="Changes" comment="One-To-Many">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d709cea1-76f2-45ec-9b05-338bb3274d1c/storage_v2/_src_/database/enigma.W9uYsg/schema/student.O4L-jw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Major.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Major.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/StudentInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/enigmacamp/simplejpa/StudentInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="03-One-To-One" />
+        <entry key="$PROJECT_DIR$" value="04-One-To-Many" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,6 +131,12 @@
       <option name="presentableId" value="Default" />
       <updated>1667268356964</updated>
       <workItem from="1667268358092" duration="8751000" />
+      <workItem from="1667349394781" duration="7000" />
+      <workItem from="1667441851295" duration="11000" />
+      <workItem from="1667441902567" duration="7000" />
+      <workItem from="1667442037328" duration="4000" />
+      <workItem from="1667447335911" duration="1254000" />
+      <workItem from="1667533478410" duration="5030000" />
     </task>
     <task id="LOCAL-00001" summary="Simple JPA">
       <created>1667274548627</created>
@@ -155,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667288240616</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="One-To-Many">
+      <created>1667306208753</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667306208753</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +195,8 @@
     <MESSAGE value="insert student with birth date" />
     <MESSAGE value="insert student enum gender" />
     <MESSAGE value="Add entity manger util" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add entity manger util" />
+    <MESSAGE value="One-To-Many" />
+    <option name="LAST_COMMIT_MESSAGE" value="One-To-Many" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
